@@ -25,6 +25,8 @@
 /* Begin PBXFileReference section */
 		AC615A601A6798EA00002451 /* leetcode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = leetcode; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC615A631A6798EA00002451 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		AC615A6A1A67996A00002451 /* Solution.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Solution.h; sourceTree = "<group>"; };
+		AC615A6B1A679F2400002451 /* Coordinate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Coordinate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,8 @@
 			isa = PBXGroup;
 			children = (
 				AC615A631A6798EA00002451 /* main.cpp */,
+				AC615A6A1A67996A00002451 /* Solution.h */,
+				AC615A6B1A679F2400002451 /* Coordinate.h */,
 			);
 			path = leetcode;
 			sourceTree = "<group>";
