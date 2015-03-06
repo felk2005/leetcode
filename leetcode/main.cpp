@@ -7,9 +7,22 @@
 //
 
 #include <iostream>
-
+#include "subsets.h"
 int main(int argc, const char * argv[]) {
     // insert code here...
-    std::cout << "Hello, World!\n";
+//    std::cout << "Hello, World!\n";
+    vector<int> source = {1,2,3};
+    vector< vector<int> > result = (new Solution)->subsets(source);
+    for (int i = 0; i < result.size(); ++i)
+    {
+        std::cout << "[";
+        for (int j = 0; j < result[i].size(); ++j)
+        {
+            std::cout << result[i][j] << " ";
+        }
+        std::cout << "]" << std::endl;
+    }
+    std::cout << "Result count:" << result.size() << std::endl;
+    
     return 0;
 }
