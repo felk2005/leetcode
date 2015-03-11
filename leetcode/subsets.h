@@ -9,29 +9,41 @@
 #ifndef leetcode_subsets_h
 #define leetcode_subsets_h
 #include <vector>
+#include <set>
 #include <algorithm>
 
 using namespace std;
 class Solution {
 public:
-    vector<vector<int> > subsets(vector<int> &S) {
-        sort(S.begin(), S.end());
+    vector<vector<int> > permute(vector<int> &num) {
+        vector<int> path;
         vector<vector<int> > result;
-        vector<int> temp;
-        subsetsHelper(S, 0, result, temp);
+        permuteHelper(num, path, result);
         return result;
     }
     
 private:
-    void subsetsHelper(vector<int>& source, int start, vector<vector<int> >& result, vector<int>& temp)
+    set<int> existElement;
+    void permuteHelper(vector<int>& num, vector<int>& path, vector<vector<int> >& result)
     {
-        result.push_back(temp);
-        for (int i = start; i < source.size(); ++i)
+        if (existElement.size() == num.size())
         {
-            temp.push_back(source[i]);
-            subsetsHelper(source, i + 1, result, temp);
-            temp.pop_back();
+            result.push_back(path);
+            return;
+        }
+        for (int i = 0; i < num.size(); ++i)
+        {
+            int val = num[i];
+            if (existElement.find(val) == existElement.end())
+            {
+                existElement.insert(val);
+                path.push_back(val);
+                permuteHelper(num, path, result);
+                path.pop_back();
+                existElement.erase(val);
+            }
         }
     }
 };
+
 #endif

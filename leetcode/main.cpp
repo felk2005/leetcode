@@ -12,7 +12,7 @@ int main(int argc, const char * argv[]) {
     // insert code here...
 //    std::cout << "Hello, World!\n";
     vector<int> source = {1,2,3};
-    vector< vector<int> > result = (new Solution)->subsets(source);
+    vector< vector<int> > result = (new Solution)->permute(source);
     for (int i = 0; i < result.size(); ++i)
     {
         std::cout << "[";
