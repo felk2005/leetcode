@@ -16,31 +16,38 @@ using namespace std;
 class Solution {
 public:
     vector<vector<int> > permute(vector<int> &num) {
+        for (int i = 0; i < num.size(); ++i)
+        {
+            visited.push_back(false);
+        }
         vector<int> path;
         vector<vector<int> > result;
+        sort(num.begin(), num.end());
         permuteHelper(num, path, result);
         return result;
     }
     
 private:
     set<int> existElement;
+    vector<bool> visited;
     void permuteHelper(vector<int>& num, vector<int>& path, vector<vector<int> >& result)
     {
-        if (existElement.size() == num.size())
+        if (path.size() == num.size())
         {
             result.push_back(path);
             return;
         }
         for (int i = 0; i < num.size(); ++i)
         {
-            int val = num[i];
-            if (existElement.find(val) == existElement.end())
+            if (i > 0 && num[i] == num[i - 1] && !visited[i - 1])
+                continue;
+            if (!visited[i])
             {
-                existElement.insert(val);
-                path.push_back(val);
+                path.push_back(num[i]);
+                visited[i] = true;
                 permuteHelper(num, path, result);
+                visited[i] = false;
                 path.pop_back();
-                existElement.erase(val);
             }
         }
     }
